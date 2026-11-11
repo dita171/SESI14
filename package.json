@@ -17,5 +17,9 @@
     "@wdio/spec-reporter": "^10.1.0",
     "appium": "^3.9.0",
     "appium-uiautomator2-driver": "^8.7.3"
+  },
+  "dependencies": {
+    "di": "^0.0.1",
+    "terminal": "^0.1.4"
   }
 }
