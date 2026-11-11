@@ -3,18 +3,24 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "wdio run wdio.conf.js"
+    "pretest": "node -e \"require('node:fs').rmSync('allure-results', { recursive: true, force: true })\"",
+    "test": "wdio run wdio.conf.js",
+    "report:generate": "allure generate allure-results --clean --output allure-report",
+    "report:open": "allure open allure-report",
+    "test:report": "npm test && npm run report:generate"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "devDependencies": {
+    "@wdio/allure-reporter": "^10.1.0",
     "@wdio/appium-service": "^10.1.1",
     "@wdio/cli": "^10.1.0",
     "@wdio/local-runner": "^10.1.0",
     "@wdio/mocha-framework": "^10.1.0",
     "@wdio/spec-reporter": "^10.1.0",
+    "allure-commandline": "^2.46.1",
     "appium": "^3.9.0",
     "appium-uiautomator2-driver": "^8.7.3"
   },
